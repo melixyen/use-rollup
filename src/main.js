@@ -6,6 +6,7 @@ import umdFn from './umdfn.js';
 function add(x,y){
 	return x + y;
 }
+// Test write a comment
 export default class {
 	constructor(x,y){
 		this.square = square;

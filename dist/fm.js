@@ -86,7 +86,8 @@
 
   function _add(x, y) {
     return x + y;
-  }
+  } // Test write a comment
+
 
   var _default =
   /*#__PURE__*/

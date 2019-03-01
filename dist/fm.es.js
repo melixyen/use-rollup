@@ -58,6 +58,7 @@ var umdfn = createCommonjsModule(function (module, exports) {
 function add(x,y){
 	return x + y;
 }
+// Test write a comment
 class main {
 	constructor(x,y){
 		this.square = square;
