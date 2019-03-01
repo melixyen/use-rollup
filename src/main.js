@@ -24,5 +24,8 @@ export default class {
 	static add() {
 		return add.apply(this, arguments);
 	}
+	getInput(){
+		return this.x + ',' + this.y;
+	}
 }
 

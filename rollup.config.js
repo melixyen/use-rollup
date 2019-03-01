@@ -17,7 +17,10 @@ var config = {
     babel({
       exclude: 'node_modules/**' // Do not translate node modules 不轉換此內容之 code
     })
-  ]
+  ],
+  watch: {// Watch only work on cli with --watch
+    include: 'src/**'
+  }
 };
 
 // ****** Custom control export config rule start ******

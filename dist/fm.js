@@ -1,13 +1,3 @@
-/*
-*   name: userollup 
-*   description: A project of library create by rollup 
-*   version: 0.0.1 
-*   license: MIT 
-*   
-*   Edit by: Melix Yen
-*   E-Mail: yourmail@abc.com
-*     
-*/
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
@@ -108,7 +98,12 @@
       this.squareBack = square(x);
     }
 
-    _createClass(_default, null, [{
+    _createClass(_default, [{
+      key: "getInput",
+      value: function getInput() {
+        return this.x + ',' + this.y;
+      }
+    }], [{
       key: "add",
       value: function add() {
         return _add.apply(this, arguments);
