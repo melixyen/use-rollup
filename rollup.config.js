@@ -3,6 +3,9 @@ import babel from 'rollup-plugin-babel';
 import minify from 'rollup-plugin-babel-minify';
 import commonjs from 'rollup-plugin-commonjs';
 import pkg from './package.json';
+import path from 'path';
+
+console.log("Working source path=> " + path.resolve('./src/any.file'));
 
 var config = {
   input: pkg.module,//'src/main.js', //entry 進入口主文件位置，預設讀取自 package.json module
@@ -11,6 +14,7 @@ var config = {
     name: 'arrayMath', // Importnat , umd and iife format use this value to be global variable name. 全域變數名稱
     format: 'umd'
   },
+  //external: ['vue','jQuery',path.resolve( './src/some-local-file.js' )],//不想要包進去的 library
   plugins: [
     resolve(),
     commonjs(),
