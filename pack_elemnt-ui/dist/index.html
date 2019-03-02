@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>Element UI 包裝後測試</title>
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript" src="element_ui_css.js"></script>
+
+<!-- Custom html template -->
+<script type="text/x-template" id="tpl_topBtn">
+	<div class="topFlex">
+		<div class="langBtn" v-on:click="changeLang('en')">A</div>
+		<div class="langBtn" v-on:click="changeLang('cht')">B</div>
+		<div class="langBtn" v-on:click="changeLang('jp')">C</div>
+	</div>
+</script>
+<script type="text/x-template" id="type_tell"><div class="typeTell">D</div></script>
+<!-- Custom javascript function -->
+<style type="text/css">
+.el-button--primary:focus {
+	background-color: #9cc;
+}
+</style>
+<script type="text/javascript">
+
+function initFn(){
+	var tpl = Vue.compile('<div id="main">' +
+		'<div class="menuBar">' +
+			'<el-button type="primary" v-on:click="clickBtn()">主要按钮</el-button>' +
+			'<el-button type="primary" v-on:click="clickBtn()" class="disabled">按钮2</el-button>' +
+			'<el-button type="primary" v-on:click="clickBtn()" class="is-disabled">按钮3</el-button>' +
+			'<div v-on:click="clickBtn()">按開關</div>' +
+		'</div>' +
+		'<div class="railSwitchArea" v-show="flagShowRailSwitch" style="padding:0px 10px;border-radius:5px; display:inline-block;overflow:hidden; transition:all 0.3s ease-in-out; min-width:1400px;">' +
+			'<div class="fdfd">HELLO</div>' +
+		'</div>' +
+	'</div>');
+
+	var vm = new Vue({
+		el: '#main',
+		render: tpl.render,
+		staticRenderFns: tpl.staticRenderFns,
+		data: {
+			flagShowRailSwitch: false,
+			page: 'sim'
+		},
+		methods: {
+			clickBtn: function(){this.flagShowRailSwitch = !this.flagShowRailSwitch;}
+		}
+	});
+}
+
+</script>
+</head>
+<body onload="initFn()">
+	<div id="top">
+		<top-btn></top-btn>
+		<type_tell></type_tell>
+	</div>
+	<div id="main"></div>
+	<div id="pop" class="pop"><div class="text"></div></div>
+</body>
+</html>
